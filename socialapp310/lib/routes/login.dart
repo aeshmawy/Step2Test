@@ -1,4 +1,4 @@
-import 'package:email_validator/email_validator.dart';
+//import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:socialapp310/utils/color.dart';
 import 'package:socialapp310/utils/styles.dart';
@@ -12,7 +12,6 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   final _formKey = GlobalKey<FormState>();
-
   bool remember = false;
   Future<void> showAlertDialog(String title, String message) async {
     return showDialog<void>(
@@ -43,8 +42,11 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
+    print('Build called');
+    // return ScaffoldMessenger(
+    //     key: scaffoldMessengerKey,
+    //
+    //   child :
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).requestFocus(FocusNode());
@@ -52,7 +54,7 @@ class _LoginState extends State<Login> {
       },
       child: Scaffold(
         backgroundColor: Colors.white,
-        resizeToAvoidBottomInset: true,
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           title: Text(
             'Sign In',
@@ -71,7 +73,7 @@ class _LoginState extends State<Login> {
                 // Spacer(),
                 Padding(
                   padding: const EdgeInsets.all(0.0),
-                  child: Image.asset('assets/images/mobile_login.png', width: 300 , height: 300),
+                  child: Image.asset('assets/images/mobile_login.png', width: 370, height: 370),
                 ),
                 // Spacer(),
                 Form(
@@ -102,13 +104,13 @@ class _LoginState extends State<Login> {
                               ),
                               child: TextFormField(
                                 decoration: InputDecoration(
-                                  fillColor: AppColors.lightgrey,
+                                  fillColor: AppColors.primarypurple,
                                   filled: true,
                                   hintText: 'E-mail',
                                   // labelText: 'Username',
                                   labelStyle: kLabelLightTextStyle,
                                   border: OutlineInputBorder(
-                                    borderSide: BorderSide(color: AppColors.darkgreyblack),
+                                    borderSide: BorderSide(color: AppColors.primarypurple),
                                     borderRadius: BorderRadius.all(Radius.circular(30.0)),
                                   ),
                                 ),
@@ -118,7 +120,7 @@ class _LoginState extends State<Login> {
                                   if(value.isEmpty) {
                                     return 'Please enter your e-mail';
                                   }
-                                  if(!EmailValidator.validate(value)) {
+                                  if(!true) {
                                     return 'The e-mail address is not valid';
                                   }
                                   return null;
@@ -157,13 +159,13 @@ class _LoginState extends State<Login> {
                               ),
                               child: TextFormField(
                                 decoration: InputDecoration(
-                                  fillColor: AppColors.lightgrey,
+                                  fillColor: AppColors.primarypurple,
                                   filled: true,
                                   hintText: 'Password',
                                   //labelText: 'Username',
                                   labelStyle: kLabelLightTextStyle,
                                   border: OutlineInputBorder(
-                                    borderSide: BorderSide(color: AppColors.darkgreyblack),
+                                    borderSide: BorderSide(color: AppColors.primarypurple),
                                     borderRadius: BorderRadius.all(Radius.circular(30.0)),
                                   ),
                                 ),
@@ -194,43 +196,43 @@ class _LoginState extends State<Login> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Expanded(
-                            flex: 1,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(40),
-                                    topRight: Radius.circular(40),
-                                    bottomLeft: Radius.circular(40),
-                                    bottomRight: Radius.circular(40)
-                                ),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.grey.withOpacity(0.5),
-                                    spreadRadius: 3,
-                                    blurRadius: 7,
-                                    offset: Offset(0, 3), // changes position of shadow
+                              flex: 1,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(40),
+                                      topRight: Radius.circular(40),
+                                      bottomLeft: Radius.circular(40),
+                                      bottomRight: Radius.circular(40)
                                   ),
-                                ],
-                              ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey.withOpacity(0.5),
+                                      spreadRadius: 3,
+                                      blurRadius: 7,
+                                      offset: Offset(0, 3), // changes position of shadow
+                                    ),
+                                  ],
+                                ),
 
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(40),
-                                child: OutlinedButton(
-                                  style: OutlinedButton.styleFrom(
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(40),
+                                  child: OutlinedButton(
+                                    style: OutlinedButton.styleFrom(
                                       backgroundColor: AppColors.primarypurple,
                                     ),
-                                  onPressed: () {},
-                                  child: Padding(
-                                padding: const EdgeInsets.symmetric(vertical: 12.0),
-                                child: Text(
-                                  'Login',
-                                  style: kButtonDarkTextStyle,
+                                    onPressed: () {},
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(vertical: 12.0),
+                                      child: Text(
+                                        'Login',
+                                        style: kButtonDarkTextStyle,
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            )
+                              )
                           ),
                         ],
                       ),

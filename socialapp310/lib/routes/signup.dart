@@ -256,6 +256,13 @@ class _SignUpState extends State<SignUp> {
                           child: Container(
                             width: 60.0,
                             child:OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(40.0),
+
+                                ),
+                                backgroundColor: AppColors.darkpurple,
+                              ),
                               onPressed: () {
 
                                 if(_formKey.currentState.validate()) {
@@ -270,7 +277,7 @@ class _SignUpState extends State<SignUp> {
                                       // if all are valid then go to success screen
                                       //signUpUser();
 
-                                      Navigator.pushNamed(context, '/signupfinish');
+                                      Navigator.pushNamed(context, '/signupdone');
                                     }
                                   }
                                   //
@@ -286,18 +293,14 @@ class _SignUpState extends State<SignUp> {
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(vertical: 12.0),
 
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 12.0),
-                              child: Text(
-                                'NEXT',
-                                style: kButtonDarkTextStyle,
-                              ),
-                              style: OutlinedButton.styleFrom(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(40.0),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 12.0),
+                                  child: Text(
+                                    'NEXT',
+                                    style: kButtonDarkTextStyle,
+                                  ),
 
                                 ),
-                                backgroundColor: AppColors.darkpurple,
                               ),
                             ),
                           ),

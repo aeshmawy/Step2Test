@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:socialapp310/routes/walkthrough.dart';
 import 'dart:async';
 
 import 'package:socialapp310/utils/color.dart';
@@ -14,7 +15,8 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 4), () => Navigator.pushNamed(context, "/welcome")); //TODO:ADD CONTEXT TO ONBOARDING SCREENS
+    Timer(Duration(seconds: 4), () => Navigator.pushReplacement(context,
+        MaterialPageRoute(builder: (BuildContext context) => WalkThrough()))); //TODO:ADD CONTEXT TO ONBOARDING SCREENS
   }
   @override
   Widget build(BuildContext context) {
@@ -58,7 +60,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    CircularProgressIndicator.adaptive(
+                    CircularProgressIndicator(
                       valueColor: AlwaysStoppedAnimation<Color>(AppColors.lightgrey),
                     ),
                     Padding(
@@ -67,7 +69,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
                     Column(
                       children: [
-                        Text( "Blah blha blah",
+                        Text( "Woof",
                           style: TextStyle(
                             //fontFamily: 'OpenSansCondensed',
                             fontSize: 20.0,
@@ -75,7 +77,7 @@ class _SplashScreenState extends State<SplashScreen> {
                             color: AppColors.darkgreyblack,
                           ),
                         ),
-                        Text( "blhhhhhhhhhh",
+                        Text( "OWA OWA",
                           style: TextStyle(
                             //fontFamily: 'OpenSansCondensed',
                             fontSize: 18.0,
